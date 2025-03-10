@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cassandra - NoSQL distributed database</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <main>
+        <aside class="sidebar" data-sidebar width="250px">
+            <div class="sidebar-info">
+                <header>
+                    <h1 class="h2 article-title" style="color: var(--white-1);">Cassandra - NoSQL distributed database</h1>
+                </header>
+                <nav class="table-of-contents" style="color: var(--white-1);">
+                    <h2>Table of Contents</h2>
+                    <ul>
+                        <li><a href="#introduction">1. Introduction</a></li>
+                        <li><a href="#components">2. Components</a></li>
+                        <li><a href="#architecture">3. Architecture</a></li>
+                        <li><a href="#read-write-flow">4. Read/Write Flow</a></li>
+                        <li><a href="#use-cases">5. Use Cases</a></li>
+                        <li><a href="#backup">6. Backup</a></li>
+                        <li><a href="#restoring">7. Restoring</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <article class="content active" style="color: var(--white-1);">
+            <h2 id="introduction">1. Introduction</h2>
+            <p>
+                Cassandra là hệ cơ sở dữ liệu phân tán có khả năng mở rộng cũng như HA cao thường dành cho các hệ thống lớn cũng như kiến trúc microservices.
+            </p>
+
+            <h2 id="components">2. Components</h2>
+            <ul>
+                <li>Node: Là nơi basic nhất để lữu giữ data (có thể là server local hoặc là virtual node)</li>
+                <li>Datacenter: Tập hợp các node giống nhau, cũng có thể là physical or virtual.</li>
+                <li>Cluster: Chứa 1 hoặc nhiều datacenter.</li>
+                <li>Vnode: Phân phối dữ liệu trên các nút giúp có thể dễ dàng đạt được nếu sử dụng token được tính toán.</li>
+            </ul>
+
+            <h2 id="architecture">3. Architecture</h2>
+            <p>
+                <img src="attachment:51cd774d-0093-4bf3-99c4-d7f0805ce960:c30875f9-5453-473a-b99f-09f524561be4.png" alt="Cassandra Architecture">
+            </p>
+            <ul>
+                <li>Cassandra được hình thành với kiến trúc peer-to-peer. Vậy nên mỗi 1 node nó sẽ xử lý tất cả các request và response mà không thông qua master.</li>
+                <li>Có thể là 1 hoặc nhiều node trong 1 cluster.</li>
+                <li>Các node trong cluster giao tiếp (internal) với nhau để trao đổi thông tin, trạng thái định kỳ và các mục đích khác. Gossip là phương thức chính được sử dụng. Thông tin trao đổi được gửi mỗi giây và tối đa đến 3 node khác trong cluster. Cách này giúp lan truyền thông tin xuyên suốt toàn bộ cluster. Nếu không nhận được phản hồi từ một node, hệ thống sẽ xác định node đó đã DOWN.</li>
+                <li>Các messages trong gossip sẽ được gắn version và sẽ ghi đè khi có version mới hơn tới.</li>
+            </ul>
+            <p>
+                <img src="attachment:68216e8e-2988-4bae-acec-ae1925576419:image.png" alt="Partitions Architecture">
+            </p>
+            <ul>
+                <li>Partitions Architecture: Partitioning in distributed systems refers to dividing a dataset or workload into distinct, manageable segments, known as partitions.</li>
+                <li>Trong Cassandra, <strong>Partition</strong> là thành phần quan trọng ảnh hưởng trực tiếp đến cách thức hoạt động và hiệu suất của hệ thống. Partition lưu trữ tất cả dữ liệu thuộc các hàng (<strong>rows</strong>) có cùng <strong>Partition Key</strong>. Giá trị của Partition Key được chuyển đổi thành token thông qua các thuật toán băm (<strong>hashing</strong>) để xác định node lưu trữ dữ liệu. Cassandra hỗ trợ ba loại thuật toán băm phổ biến như sau:
+                    <ul>
+                        <li>Murmur3Partitioner (default): faster hasing and improved performance than the randomPartitioner. Used by Vnode(virtual node) → Đa số là sử dụng cái này</li>
+                        <li>RandomPartitioner: Sử dụng MD5 để băm giá trị Partition Key, tạo ra token ngẫu nhiên.</li>
+                        <li>ByteOrderedPartitioner: Distribution byte của Partition Key (từ nhỏ đến lớn).</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                <img src="attachment:0bb5b5cb-4de7-4612-ad24-187c4bcc91ab:image.png" alt="Vnode Architecture">
+            </p>
+            <ul>
+                <li>Hệ thống còn sử dụng kiến trúc Vnode như sau: Virtual node cho phép mỗi node sở hữu nhiều partition range phân tán từ đầu tới cuối cluster. Vnode cũng sử dụng consistent hashing để phân tán dữ liệu, nhưng sử dụng consistent hashing không đòi hỏi tạo ra token và gán giá trị cho chúng
+                    <ul>
+                        <li>Ring không có Vnode: Mỗi node sẽ được gán với 1 single token mà thể hiện vị trí trong ring. Mỗi single token đó được ánh xạ bởi partition key đến token value bên trong mỗi RANG bởi node phía trước gắn về. Các Replicaset cũng sẽ được ở trên các node khác. Tại bản chính chỉ chứa 1 gốc trong ring space.</li>
+                        <li>Vòng Ring chứa node: Vnode sẽ chọn ngẫu nhiên 1 rang của các phân vùng dữ liệu và lưu trữ data trên node đó. Vị trí của 1 row được xác định bởi giá trị băm của partitions key trong nhiều partitions range nhỏ hơn thuộc mỗi node.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                <img src="attachment:3fdf8db0-25db-4982-b7f9-a64485c30a94:image.png" alt="Replication">
+            </p>
+            <ul>
+                <li><strong>Replication:</strong> Các node sẽ lưu trữ các replicas trên các node khác. Tổng số bản sao trên cluster được gọi là replication factor.
+                    <ul>
+                        <li>Example: Nếu giá trị replication factor mà là 1 thì có nghĩa chỉ có 1 bản sao trên mỗi node.</li>
+                        <li>Có 2 replications strategy tại đây:
+                            <ul>
+                                <li>SimpleStrategy: Chỉ sử dụng đối với 1 datacenter. Nó sẽ đặt bản gốc tại partitioner chỉ định. Các bản copies kế tiếp sẽ được đặt theo chiều kim đồng hồ.</li>
+                                <li>NetworkTopologyStrategy: Khi có nhiều DataCenter. Nó có thể xác định được số bản sao mà mình muốn trên mỗi DataCenter. NTS sẽ đặt các bản sao trên cùng DataCenter và chuyển dịch nó theo chiều kim đồng hồ. (Khúc này có issuse)</li>
+                            </ul>
+                        </li>
+                        <li>Có 2 cách phổ biến nhất để cấu hình cụm DataCenter:
+                            <ul>
+                                <li>Đặt 2 replicaset trên mỗi 1 DataCenter: Cho phép faild của 1 node duy nhất trong 1 nhóm replication và vẫn cho phép local đọc consistency (nhất quán) level of ONE</li>
+                                <li>Đặt 3 replicaset trên mỗi 1 DataCenter: Cho phép faild trên mỗi nhóm replicastion tại strong Consistency level của LOCAL_QUORUM hoặc nhiều node bị lỗi trên mỗi data center sử dụng CL = ONE.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2 id="read-write-flow">4. Read/Write Flow</h2>
+            <h3>Quá trình write data</h3>
+            <ul>
+                <li><strong>Logging data in the commit log:</strong> Qúa trình này sẽ thực hiện đồng thời với write data to memtables. Commit log sẽ được lưu tại DISK và các commit này sẽ luôn luôn được lưu trữ tại Node kể cả khi gặp lỗi.</li>
+                <li><strong>Writing data to the memtable:</strong> Data được write vào memtables đầu tiên tại RAM và sẽ làm cache của data partitions, được xác định bởi key. Các data tới memtables sẽ được thêm vào cho tới khi đạt giới hạn thì sẽ flush xuống SStable</li>
+                <li><strong>Flushing data from the memtable:</strong> Tại đây sẽ được diễn ra khi memtable tới ngưỡng hoặc policies. Data sẽ flush từ memtable xuống SStable. Khi đó Partition index cũng sẽ được tạo trên disk và map token tới location trên DISK.</li>
+                <li><strong>Storing data on disk in SSTable:</strong> Memtables and SSTables are maintained per table. Commit logs sẽ được chia sẻ giữa các tables. Khi Data đã được flushed xuống SSTables thì nó sẽ là bất biến.</li>
+            </ul>
+            <p>
+                <img src="attachment:b69b89a8-b0ab-4c2a-9a12-a1fd0697f494:image.png" alt="Write Data Process">
+            </p>
+            <h3>Quá trình read data</h3>
+            <ul>
+                <li><strong>Check the memtable:</strong> Nếu có data tại đây thì sẽ merge với SSTables trước rồi send data final về cho client.</li>
+                <li>Check row cache, if enabled thì nó sẽ kiểm tra và tìm data ????????????</li>
+                <li><strong>Checks Bloom filter:</strong> Được load trên Heap memory để tìm data trong SSTables file có thể lưu trữ dữ liệu trên các partition. Bloom filter được hoạt động với hàm xác suất thông kê để tìm vị trí xác định. Trường hợp nó tìm được partitions đó hay không có 2 trường hợp:
+                    <ul>
+                        <li>Nếu giá trị nhận được là 1 và nhận định là có khả năng có: Cassandra sẽ truy vấn trực tiếp trong <strong>Partition Index</strong> của SSTable để lấy ra đúng <strong>location offset</strong> của partition data trên đĩa.</li>
+                        <li>Nếu bloomfileter nhận định là được nhưng tìm không thấy thì: Cassandra tiếp tục kiểm tra trong Partition Key Cache. Nếu partition key cache không tìm thấy, Cassandra tiếp tục kiểm tra Partition Index trong SSTables. Khi đọc xong SSTable và không thấy partition, Cassandra trả về Không tìm thấy dữ liệu cho client.</li>
+                    </ul>
+                </li>
+                <li>Locates the data on disk using the compression offset map</li>
+                <li>Fetches the data from the SSTable on disk</li>
+            </ul>
+            <p>
+                <img src="attachment:23328bae-c243-40e8-a0cd-8fef41e36a82:image.png" alt="Read Data Process">
+            </p>
+            <p>
+                <img src="attachment:e9ae29d2-c9b5-425a-8b9f-919fc153db69:image.png" alt="Read Request Flow">
+            </p>
+            <p>
+                <img src="attachment:23328bae-c243-40e8-a0cd-8fef41e36a82:image.png" alt="Row Cache and Key Cache Request Flow">
+            </p>
+
+            <h2 id="use-cases">5. Use Cases</h2>
+            <ul>
+                <li><strong>Content management systems (CMS):</strong> Đối với các platform CMS thì cassandra có khả năng mở rộng và linh hoạt với quả lý không cấu trúc cũng như bán cấu trúc → Khả năng mở rộng các ứng dụng tốt và tối ưu cho các phần mềm có lượng request/response lớn</li>
+                <li><strong>Real-time analytics:</strong> Cassandra support real time data processing.</li>
+                <li><strong>Event logging and tracking:</strong> Security information and event management (SIEM) yêu cầu ghi nhật ký, theo dõi và kiểm toán toàn diện có thể tận dụng kiến trúc có khả năng mở rộng và chống lỗi của Cassandra để đảm bảo thu thập và phân tích dữ liệu đáng tin cậy.</li>
+                <li><strong>Message queues and communication platforms:</strong> Cassandra có khả năng xử lý các hoạt động ghi thông lượng cao, có độ trễ thấp, đảm bảo cả giao tiếp thời gian thực và lưu trữ tin nhắn đáng tin cậy.</li>
+                <li><strong>Big data integration:</strong> Cassandra thường được tích hợp với các công nghệ bigdata khác như Apache Spark và Apache Hadoop, nơi nó trở thành một phần của hệ sinh thái xử lý và phân tích dữ liệu toàn diện. Điều này đặc biệt có lợi cho các tổ chức yêu cầu một giải pháp có thể mở rộng cho cả lưu trữ và phân tích.</li>
+            </ul>
+
+            <h2 id="backup">6. Backup</h2>
+            <p>Có 2 loại backup như sau:</p>
+            <ul>
+                <li>Snapshots: Là các bản copy của SStables trong 1 thời gian xác định.</li>
+                <li>Incremental Backup: Là bản sao của các tệp có thể sử dụng của table được tạo bởi một liên kết cứng khi các memtables được chuyển thành đĩa dưới dang sstables</li>
+            </ul>
+            <p>Để tối ưu hóa có thể tận dụng cả 2 các trên vào hệ thống:</p>
+            <p>So sánh 2 loại backup như sau:</p>
+            <table class="article-table" style="color: var(--white-1);">
+                <caption>Comparison of Backup Types</caption>
+                <thead>
+                    <tr>
+                        <th>Tiêu chí</th>
+                        <th>Snapshots</th>
+                        <th>Incremental Backups</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cách hoạt động</td>
+                        <td>Lưu toàn bộ dữ liệu tại thởi điểm backup</td>
+                        <td>Chỉ lưu những dữ liệu mới hoặc thay đổi so với lần backup trước</td>
+                    </tr>
+                    <tr>
+                        <td>Lưu trữ</td>
+                        <td>Lưu trữ toàn bộ các SSTable của keyspace hoặc bảng được chọn.</td>
+                        <td>Chỉ lưu trữ các tệp SSTable mới hoặc được sửa đổi.</td>
+                    </tr>
+                    <tr>
+                        <td>Khôi phục dữ liệu</td>
+                        <td>Dễ dàng hơn vì snapshot chứa toàn bộ dữ liệu tại thời điểm backup.</td>
+                        <td>Cần có snapshot làm điểm gốc, sau đó áp dụng incremental backups để khôi phục.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Data Directory Structure</strong></p>
+            <p>
+                <img src="attachment:1589880f-bc3b-4907-98ff-bf3615938eb5:image.png" alt="Data Directory Structure">
+            </p>
+            <h3>Snapshot với nodetool</h3>
+            <pre><code>
+### Check all flag
+nodetool help snapshot
+
+### Configuring for Snapshots
+### Set in cassandra.yaml
+### Disable creating snapshots automatically before compaction
+auto_snapshot: false
+snapshot_before_compaction: false
+
+### Find all snapshots
+find -name snapshots
+nodetool listsnapshots
+
+### Creating Snapshots
+### Taking Snapshots of all Tables in a Keyspace
+### Can find file in /cassandra/data/data/<Keysapce>/
+nodetool snapshot --tag <tag> <keyspace>
+(Example): nodetool snapshot --tag catalog-ks catalogkeyspace
+
+### Taking Snapshots of Single Table in a Keyspace
+nodetool snapshot --tag <tag> --table <table>  --<keyspace>
+(Example):  nodetool snapshot --tag magazine --table magazine  catalogkeyspace
+
+### Taking Snapshot of Multiple Tables from same Keyspace
+###  For example, create snapshots for tables t and t2 in the cqlkeyspace keyspace:
+nodetool snapshot --kt-list cqlkeyspace.t,cqlkeyspace.t2 --tag multi-table
+
+### Taking Snapshot of Multiple Tables from Different Keyspaces
+### For example, create a snapshot for table t in the cqlkeyspace and table journal in the catalogkeyspace and tag the snapshot multi-ks.
+nodetool snapshot --kt-list catalogkeyspace.journal,cqlkeyspace.t --tag multi-ks
+
+### Clearing Snapshots
+### For example, delete a snapshot called magazine from keyspace cqlkeyspace:
+nodetool clearsnapshot -t magazine cqlkeyspace
+### or delete all snapshots from cqlkeyspace with the –all option:
+nodetool clearsnapshot -all cqlkeyspace
+            </code></pre>
+
+            <h3>Incremental Backups</h3>
+            <pre><code>
+### Set in cassandra.yml
+incremental_backups: true
+
+### Created flush the table data
+nodetool flush cqlkeyspace t
+nodetool flush cqlkeyspace t2
+nodetool flush catalogkeyspace journal magazine
+            </code></pre>
+
+            <h2 id="restoring">7. Restoring from Incremental Backups and Snapshots</h2>
+            <ul>
+                <li>sstableloader</li>
+                <li>nodetool import</li>
+            </ul>
+        </article>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
