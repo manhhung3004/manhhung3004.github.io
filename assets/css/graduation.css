@@ -1,0 +1,282 @@
+/* ===== RESET CSS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY & CONTAINER ===== */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Animated background overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: backgroundMove 20s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes backgroundMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(20px, -20px) scale(1.05);
+    }
+}
+
+/* Floating particles animation */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent);
+    background-size: 200% 200%;
+    animation: sparkle 15s ease-in-out infinite;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 80% 20%, 10% 90%;
+    }
+
+    50% {
+        background-position: 100% 100%, 0% 0%, 30% 70%, 20% 80%, 90% 10%;
+    }
+}
+
+/* ===== INVITE CARD ===== */
+.invite-card {
+    background-color: #ffffff;
+    max-width: 1275px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== IMAGE SECTION ===== */
+.image-section {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    z-index: 1;
+    border-radius: 10px 10px 0 0;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-section:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== CLASS BANNER ===== */
+.class-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #4a4a4a 0%, #6a6a6a 100%);
+    color: #ffffff;
+    padding: 18px 40px;
+    /* Giảm từ 27px 60px xuống 18px 40px */
+    font-size: 1.8em;
+    /* Giảm từ 2.7em xuống 1.8em */
+    font-weight: 300;
+    letter-spacing: 2px;
+    /* Giảm từ 3px xuống 2px */
+    z-index: 2;
+    /* Đảm bảo banner nằm trên ảnh */
+}
+
+.class-banner::after {
+    content: '';
+    position: absolute;
+    right: 40px;
+    /* Giảm từ 60px xuống 40px */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== CONTENT SECTION ===== */
+.content-section {
+    padding: 50px;
+    /* Giảm từ 75px xuống 50px */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    /* Giảm từ 60px xuống 40px */
+    background-color: #f8f8f8;
+    position: relative;
+    z-index: 3;
+    /* Đảm bảo content nằm trên và không bị che */
+}
+
+/* ===== LEFT CONTENT ===== */
+.left-content {
+    flex: 1;
+}
+
+.title {
+    font-size: 3.5em;
+    /* Giảm từ 5.25em xuống 3.5em */
+    font-weight: bold;
+    color: #4a4a4a;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    /* Giảm từ 37.5px xuống 25px */
+}
+
+/* ===== RIGHT CONTENT ===== */
+.right-content {
+    flex: 1;
+    text-align: right;
+}
+
+.date {
+    font-size: 2.3em;
+    /* Giảm từ 3.45em xuống 2.3em */
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    /* Giảm từ 22.5px xuống 15px */
+}
+
+.details {
+    color: #666;
+    font-size: 1.1em;
+    /* Giảm từ 1.65em xuống 1.1em */
+    line-height: 1.8;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    display: inline-block;
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 25px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1400px) {
+    .invite-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .invite-card {
+        max-width: 100%;
+    }
+
+    .content-section {
+        flex-direction: column;
+        padding: 30px 25px;
+    }
+
+    .right-content {
+        text-align: left;
+    }
+
+    .title {
+        font-size: 2.5em;
+    }
+
+    .date {
+        font-size: 1.8em;
+    }
+
+    .details {
+        font-size: 1em;
+    }
+
+    .image-section {
+        height: 300px;
+    }
+
+    .class-banner {
+        font-size: 1.3em;
+        padding: 15px 20px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}

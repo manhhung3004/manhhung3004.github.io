@@ -1,0 +1,204 @@
+/* ===== RESET CSS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY & CONTAINER ===== */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Animated background overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: backgroundMove 20s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes backgroundMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(1.05);
+    }
+}
+
+/* Floating particles animation */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 25% 35%, white, transparent),
+        radial-gradient(2px 2px at 65% 75%, white, transparent),
+        radial-gradient(1px 1px at 45% 55%, white, transparent),
+        radial-gradient(1px 1px at 75% 15%, white, transparent),
+        radial-gradient(2px 2px at 85% 65%, white, transparent);
+    background-size: 200% 200%;
+    animation: sparkle 15s ease-in-out infinite;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 80% 20%, 10% 90%;
+    }
+
+    50% {
+        background-position: 100% 100%, 0% 0%, 30% 70%, 20% 80%, 90% 10%;
+    }
+}
+
+/* ===== DIRECTIONS CONTAINER ===== */
+.directions-container {
+    background-color: #ffffff;
+    max-width: 1275px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== DIRECTIONS HEADER ===== */
+.directions-header {
+    background: linear-gradient(90deg, #4a4a4a 0%, #6a6a6a 100%);
+    color: #ffffff;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.directions-header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.directions-header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* ===== MAP IMAGE CONTAINER ===== */
+.map-image-container {
+    position: relative;
+    width: 100%;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.map-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.map-image-container:hover img {
+    transform: scale(1.02);
+}
+
+/* ===== INSTRUCTION TEXT ===== */
+.instruction-text {
+    padding: 30px 40px;
+    background-color: #ffffff;
+    color: #666;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.8;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-button-container {
+    padding: 40px;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 0 0 10px 10px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .directions-header {
+        padding: 20px;
+    }
+
+    .directions-header h1 {
+        font-size: 1.8em;
+    }
+
+    .back-button-container {
+        padding: 25px;
+    }
+
+    .instruction-text {
+        padding: 20px;
+        font-size: 1em;
+    }
+}
