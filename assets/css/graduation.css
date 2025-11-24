@@ -121,7 +121,7 @@ body::after {
     background-color: #ffffff;
     width: 90vw;
     height: auto;
-    max-width: 70vw;
+    max-width: 90rem;
     box-shadow: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
@@ -150,7 +150,7 @@ body::after {
     position: relative;
     width: 50%;
     height: auto;
-    min-height: 28.125rem;
+    min-height: 31.25rem;
     overflow: hidden;
     background-color: #ffffff;
     z-index: 1;
@@ -202,11 +202,11 @@ body::after {
 
 /* ===== CONTENT SECTION ===== */
 .content-section {
-    padding: 3%;
+    padding: 4%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 1.2rem;
+    gap: 1.5rem;
     width: 50%;
     background-color: #f8f8f8;
     position: relative;
