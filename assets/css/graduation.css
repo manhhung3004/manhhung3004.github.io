@@ -27,6 +27,31 @@ body {
     min-height: 100vh;
     padding: 20px;
     overflow-x: hidden;
+    animation: pageEnter 0.6s ease-out;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pageExit {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
 }
 
 /* Animated background overlay */
@@ -96,7 +121,7 @@ body::after {
     background-color: #ffffff;
     width: 90vw;
     height: auto;
-    max-width: 90rem;
+    max-width: 70vw;
     box-shadow: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
@@ -125,7 +150,7 @@ body::after {
     position: relative;
     width: 50%;
     height: auto;
-    min-height: 31.25rem;
+    min-height: 28rem;
     overflow: hidden;
     background-color: #ffffff;
     z-index: 1;
@@ -177,11 +202,11 @@ body::after {
 
 /* ===== CONTENT SECTION ===== */
 .content-section {
-    padding: 4%;
+    padding: 3%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 1.5rem;
+    gap: 1.2rem;
     width: 50%;
     background-color: #f8f8f8;
     position: relative;
