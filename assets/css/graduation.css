@@ -150,7 +150,7 @@ body::after {
     position: relative;
     width: 50%;
     height: auto;
-    min-height: 28rem;
+    min-height: 28.125rem;
     overflow: hidden;
     background-color: #ffffff;
     z-index: 1;
