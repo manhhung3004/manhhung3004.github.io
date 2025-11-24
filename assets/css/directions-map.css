@@ -7,10 +7,12 @@
 
 /* ===== BODY & CONTAINER ===== */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: url('../images/GB-1.jpg');
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -86,13 +88,13 @@ body::after {
 /* ===== DIRECTIONS CONTAINER ===== */
 .directions-container {
     background-color: #ffffff;
-    max-width: 1275px;
-    width: 100%;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 90vw;
+    max-width: 75rem;
+    box-shadow: 0 1.25rem 3.75rem rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
     z-index: 1;
-    border-radius: 10px;
+    border-radius: 1.25rem;
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -110,95 +112,190 @@ body::after {
 
 /* ===== DIRECTIONS HEADER ===== */
 .directions-header {
-    background: linear-gradient(90deg, #4a4a4a 0%, #6a6a6a 100%);
+    background: linear-gradient(135deg, #4a90e2 0%, #667eea 100%);
     color: #ffffff;
-    padding: 30px 40px;
+    padding: 3% 4%;
     text-align: center;
 }
 
 .directions-header h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: clamp(2rem, 4vw, 3em);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
 }
 
 .directions-header p {
-    font-size: 1.1em;
+    font-size: clamp(1rem, 2vw, 1.1em);
     opacity: 0.9;
+    letter-spacing: 0.3px;
+}
+
+.directions-header i {
+    margin-right: 0.5rem;
+    opacity: 0.95;
 }
 
 /* ===== MAP IMAGE CONTAINER ===== */
 .map-image-container {
     position: relative;
     width: 100%;
-    background-color: #f0f0f0;
+    background-color: #f8f8f8;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 2% 0;
 }
 
 .map-image-container img {
-    width: 100%;
+    width: clamp(300px, 60%, 480px);
     height: auto;
     display: block;
     transition: transform 0.5s ease;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
 }
 
 .map-image-container:hover img {
-    transform: scale(1.02);
+    transform: scale(1.05);
+}
+
+/* ===== GOOGLE MAP CONTAINER ===== */
+.google-map-container {
+    position: relative;
+    width: 100%;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    padding: 2% 0;
+}
+
+.google-map-container iframe {
+    display: block;
+    width: 90%;
+    height: clamp(300px, 50vw, 500px);
+    margin: 0 auto;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
 }
 
 /* ===== INSTRUCTION TEXT ===== */
 .instruction-text {
-    padding: 30px 40px;
+    padding: 3% 4%;
     background-color: #ffffff;
-    color: #666;
-    text-align: center;
-    font-size: 1.1em;
+    text-align: left;
+}
+
+.instruction-item {
+    margin-bottom: 2rem;
+}
+
+.instruction-item:last-child {
+    margin-bottom: 0;
+}
+
+.instruction-label {
+    font-size: clamp(1rem, 1.8vw, 1.2em);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #4a90e2;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.instruction-label i {
+    margin-right: 0.5rem;
+    opacity: 0.9;
+}
+
+.instruction-item p {
+    font-size: clamp(0.95rem, 1.8vw, 1.1em);
+    font-family: 'Poppins', sans-serif;
+    color: #2c3e50;
     line-height: 1.8;
-    border-top: 1px solid #e0e0e0;
+    opacity: 0.85;
+}
+
+.instruction-item a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.instruction-item a i {
+    margin-right: 0.4rem;
+}
+
+.instruction-item a:hover {
+    color: #357abd;
+    text-decoration: underline;
 }
 
 /* ===== BACK BUTTON ===== */
 .back-button-container {
-    padding: 40px;
+    padding: 3% 4%;
     text-align: center;
     background-color: #f8f8f8;
-    border-radius: 0 0 10px 10px;
+    border-top: 1px solid #e0e0e0;
 }
 
 .btn {
     display: inline-block;
-    background-color: #4a90e2;
-    color: white;
-    padding: 15px 35px;
+    background-color: transparent;
+    color: #4a90e2;
+    border: 2px solid #4a90e2;
+    padding: 0.875rem 2.5rem;
     text-decoration: none;
-    border-radius: 3px;
-    font-size: 1em;
+    border-radius: 50px;
+    margin-top: 0.5rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1em);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
-    font-weight: 500;
+    letter-spacing: 0.3px;
+    opacity: 0.7;
 }
 
 .btn:hover {
-    background-color: #357abd;
+    background-color: #4a90e2;
+    color: white;
+    opacity: 1;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+    opacity: 1;
+}
+
+.btn i {
+    margin-right: 0.6rem;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .directions-container {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 768px) {
     .directions-header {
-        padding: 20px;
+        padding: 4% 5%;
     }
 
     .directions-header h1 {
-        font-size: 1.8em;
-    }
-
-    .back-button-container {
-        padding: 25px;
+        margin-bottom: 0.5rem;
     }
 
     .instruction-text {
-        padding: 20px;
-        font-size: 1em;
+        padding: 4% 5%;
+    }
+
+    .back-button-container {
+        padding: 4% 5%;
+    }
+
+    .btn {
+        padding: 0.75rem 2rem;
     }
 }
