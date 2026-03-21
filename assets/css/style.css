@@ -1006,7 +1006,7 @@ main {
 
 
 /*-----------------------------------*\
-  #PORTFOLIO
+  #Projects
 \*-----------------------------------*/
 
 .filter-list { display: none; }
@@ -1313,7 +1313,7 @@ article:not(.about) {
 }
 
 .resume,
-.portfolio,
+.Projects,
 .blog,
 .contact,
 .content {
@@ -1323,7 +1323,7 @@ article:not(.about) {
 
 .sidebar,
 .resume,
-.portfolio,
+.Projects,
 .blog,
 .contact,
 .content,
@@ -1556,7 +1556,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG 
+   * #Projects, BLOG 
    */
 
   .project-img,
@@ -1821,7 +1821,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG
+   * #Projects, BLOG
    */
 
   .project-img, .blog-banner-box { border-radius: 16px; }
@@ -1919,7 +1919,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * PORTFOLIO
+   * Projects
    */
 
   .article-title { padding-bottom: 20px; }
@@ -1945,7 +1945,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .filter-item button.active { color: var(--orange-yellow-crayola); }
 
-  /* portfolio and blog grid */
+  /* Projects and blog grid */
 
   .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
 
@@ -2064,7 +2064,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * PORTFOLIO
+   * Projects
    */
 
   .project-list { grid-template-columns: repeat(3, 1fr); }

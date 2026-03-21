@@ -1,2 +1,2 @@
-docker build -t my-portfolio-dev .
-docker run --rm -p 8080:80 -v "${PWD}:/usr/share/nginx/html" -v "${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf:ro" my-portfolio-dev
+docker build -t my-Projects-dev .
+docker run --rm -p 8080:80 -v "${PWD}:/usr/share/nginx/html" -v "${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf:ro" my-Projects-dev

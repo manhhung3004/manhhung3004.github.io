@@ -1,4 +1,4 @@
-vCard - Personal Portfolio
+vCard - Personal Projects
 
 # sidebar
 
@@ -24,7 +24,7 @@ Sacramento, California, USA
 
 About
 Resume
-Portfolio
+Projects
 Blog
 Contact
 
@@ -132,9 +132,9 @@ WordPress
 
 
 
-# portfolio
+# Projects
 
-Portfolio
+Projects
 
 All
 Web design
