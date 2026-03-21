@@ -140,20 +140,28 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+const activatePage = function (pageName) {
+  for (let i = 0; i < pages.length; i++) {
+    const isTarget = pageName === pages[i].dataset.page;
+    pages[i].classList.toggle("active", isTarget);
+    navigationLinks[i].classList.toggle("active", isTarget);
+  }
+  window.scrollTo(0, 0);
+}
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
+    const selectedPage = this.innerHTML.toLowerCase();
+    activatePage(selectedPage);
+    if (window.location.hash !== `#${selectedPage}`) {
+      history.replaceState(null, "", `#${selectedPage}`);
     }
-
   });
+}
+
+// open the correct section when arriving from project pages
+const hashPage = window.location.hash.replace("#", "").toLowerCase();
+if (hashPage) {
+  activatePage(hashPage);
 }

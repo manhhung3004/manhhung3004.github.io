@@ -1,0 +1,47 @@
+Nong Manh Hung
+♂phone0986296153 /envel⌢pemanhhung20033004@gmail.com
+/githubmanhhung3004 /linkedinManh Hung
+EXPERIENCE
+DevOps Engineer Ho Chi Minh City, Vietnam
+YouNet Media Sep 2025 – Present
+– CI/CD Pipeline: Deployment workflows usingJenkins and Helm to automate deployment across multiple environments.
+– Container Orchestration:Cluster management and resource optimization to ensure service stability and high availability.
+– Observability: Centralized monitoring and logging systems viaPrometheus, Grafana,andLokifor system health tracking.
+– Database: Administration ofMongoDB, Redis,and MySQL to guarantee data integrity and system performance.
+– Performance Optimization: TimescaleDB Replicationsetup to reporting services and reduce primary database load.
+– Infrastructure as Code:Server configuration automation viaAnsible to maintain environment consistency.
+DevOps Intern Ho Chi Minh City, Vietnam
+TiTan Technology & THD Cyber Security Jul 2024 – Jun 2025
+– GitOps Strategy: Automated deployment workflows usingArgoCD and GitLab within testing environments.
+– Kubernetes Cluster Deployment:Automated cluster setup viaKubespray and Ansible for development stages.
+– Monitoring Methodologies: Log analysis and metric tracking usingELK stackand Prometheus.
+– Cloud Infrastructure:Technical exploration of foundationalAWS services(EC2, S3, VPC) for cloud-native environments.
+PROJECTS
+Services Mesh & Event-Driven Scaling [Link Repo: Services-Mesh-Event-Driven-Scaling]
+Self-managed K8s environment using Kubernetes, Istio, and KEDA
+– Infrastructure Architecture:Multi-node cluster deployment viaKubernetes to simulate production-grade environments.
+– Service Mesh Integration: Istioimplementation for advanced traffic routing, mTLS security, and observability.
+– Scale-to-Zero Optimization: Knativeserving deployment to eliminate idle resource consumption (CPU/RAM).
+– Event-Driven Autoscaling: KEDAengineering triggered byRedis queue depth for dynamic workload handling.
+– Local Monitoring Stack:Real-time scaling visualization usingPrometheus and Grafana dashboards.
+Production-Ready GitOps Framework [Repo]
+Multi-environment delivery with ArgoCD, Vault, and Jenkins
+– GitOps Strategy: Multi-environment workflow automation viaArgoCD for strict isolation and RBAC.
+– Secret Management:Secure credential injection usingHashiCorp Vaultsidecars to ensure Git security.
+– CI/CD Standardization: Pipeline optimization usingJenkins Shared Librariesand Helm common charts.
+– Traffic Management: Istiodeployment for Canary/Blue-Green releases and inter-service encryption.
+– Centralized Logging:Observability enhancement throughLoki and Prometheus metric correlation.
+TECHNICAL SKILLS
+Cloud & IaC:AWS (EC2, VPC, S3), Terraform, Ansible.
+Container Orchestration:Kubernetes, Istio Service Mesh, Helm Charts.
+Serverless & Autoscaling:Knative, KEDA, Karpenter.
+CI/CD & GitOps:Jenkins (Shared Libraries), GitLab CI, ArgoCD.
+Observability: Prometheus, Grafana, Loki, Alloy, ELK Stack.
+Databases: MongoDB, Redis, TimescaleDB, MySQL.
+Security : HashiCorp Vault, Snyk.
+EDUCA TION
+VNU-HCM University of Information Technology (UIT) 2021 – 2025
+Computer Networks and Data Communications (GPA: 7.56/10) Ho Chi Minh City, Vietnam
+English proficiency: TOEIC Speaking & Writing (260/400).
+AWS Cloud training: Completion of cloud computing course organized by the Faculty of Computer Networking
+and Communications

@@ -15,7 +15,7 @@
   <!--
     - custom css link 
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css?v=20260321a">
 
   <!--
     - google font link
@@ -80,30 +80,16 @@
 
           </li>
 
-          <!-- <li class="contact-item">
+          <li class="contact-item">
 
             <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
+              <ion-icon name="call-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+84986296153" class="contact-link">(+84)986296153</a>
-            </div>
-
-          </li> -->
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">April 30, 2003</time>
+              <a href="tel:+84986296153" class="contact-link">(+84) 986 296 153</a>
             </div>
 
           </li>
@@ -117,7 +103,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Ho Chi Minh City</address>
+              <address>Ho Chi Minh City, Vietnam</address>
             </div>
 
           </li>
@@ -129,20 +115,14 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="https://www.facebook.com/manhhung30042003/" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
+            <a href="https://github.com/manhhung3004" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
             <a href="https://www.linkedin.com/in/manh-hung-4665b7243/" class="social-link">
               <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
@@ -210,11 +190,11 @@
 
         <section class="about-text">
           <p>
-            My name is Nong Manh Hung, and I am currently a DevOps Intern at Atalink, located in District 12, Ho Chi Minh City. I am also a final-year student majoring in Computer Networking and Communications at the University of Information Technology - Vietnam National University, Ho Chi Minh City.
+            I am Nong Manh Hung, a DevOps Engineer based in Ho Chi Minh City, Vietnam, currently working at YouNet Media. I focus on building reliable platform systems and deployment pipelines for modern cloud-native applications.
           </p>
         
           <p>
-            I am passionate about learning and growing in the field of DevOps, focusing on building efficient workflows and optimizing infrastructure. I enjoy exploring automation tools, improving system reliability, and collaborating with teams to ensure smooth software delivery processes. My goal is to gain valuable experience, contribute to impactful projects, and grow into a skilled professional in the DevOps field.
+            My practical experience includes CI/CD automation with Jenkins and Helm, Kubernetes cluster operations, observability using Prometheus/Grafana/Loki, and infrastructure automation with Ansible. I also work with MongoDB, Redis, MySQL, and TimescaleDB to improve performance and system stability.
           </p>
         </section>
         
@@ -226,7 +206,7 @@
 
         <section class="service">
 
-          <h3 class="h3 service-title">What i'm doing</h3>
+          <h3 class="h3 service-title">What I'm Doing</h3>
 
           <ul class="service-list">
 
@@ -241,8 +221,10 @@
                 <h4 class="h4 service-item-title">CI/CD Pipeline</h4>
               
                 <p class="service-item-text">
-                  Simplify software delivery with Jenkins, GitLab CI, and ArgoCD.
+                  Standardize build, test, and deployment workflows for faster and safer releases.
                 </p>
+
+                <p class="service-item-stack">Jenkins • Helm • GitLab CI</p>
               </div>
               
 
@@ -255,11 +237,13 @@
               </div> -->
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Container orchestration</h4>
+                <h4 class="h4 service-item-title">Container Orchestration</h4>
 
                 <p class="service-item-text">
-                  Manage and deploy containers using Kubernetes and Docker.
+                  Operate Kubernetes platforms with a focus on reliability, scaling, and uptime.
                 </p>
+
+                <p class="service-item-stack">Kubernetes • Istio • Karpenter</p>
               </div>
 
             </li>
@@ -274,8 +258,10 @@
                 <h4 class="h4 service-item-title">Monitoring and Logs</h4>
 
                 <p class="service-item-text">
-                  Gain insights and ensure system reliability with Grafana and Prometheus.
+                  Build observability pipelines to monitor health, logs, and system behavior in real time.
                 </p>
+
+                <p class="service-item-stack">Prometheus • Grafana • Loki • ELK</p>
               </div>
 
             </li>
@@ -287,11 +273,13 @@
               </div> -->
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Infrastructure as Code(IaC)</h4>
+                <h4 class="h4 service-item-title">Infrastructure as Code (IaC)</h4>
 
                 <p class="service-item-text">
-                  Automate infrastructure management with Terraform and Ansible.
+                  Automate provisioning and configuration to keep environments reproducible and consistent.
                 </p>
+
+                <p class="service-item-stack">Terraform • Ansible • Vault</p>
               </div>
 
             </li>
@@ -299,110 +287,6 @@
           </ul>
 
         </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <!-- <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>  -->
-
 
         <!--
           - testimonials modal
@@ -448,57 +332,6 @@
 
         </div> 
 
-
-        <!--
-          - clients
-        -->
-
-        <!-- <section class="clients">
-
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section> -->
-
       </article>
 
       <!--
@@ -525,35 +358,11 @@
 
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">University of Information Technology - VNUHCM</h4>
-              <span>2021 — Present</span>
+              <span>2021 — 2025</span>
               <p class="timeline-text">
-                Pursuing a degree in Information Technology with a focus on software development and system architecture.
+                Computer Networks and Data Communications (GPA: 7.56/10). TOEIC Speaking & Writing: 260/400.
               </p>
             </li>
-            
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Nguyễn Chí Thanh Gifted School</h4>
-              <span>2018 — 2021</span>
-              <p class="timeline-text">
-                Specialized in Biology, dedicated to mastering the subject through hard work and scientific research.
-              </p>
-            </li>
-            
-            
-
-            <!-- <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">High school of art and design</h4>
-
-              <span>2002 — 2004</span>
-
-              <p class="timeline-text">
-                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
-                magni dolores
-                eos.
-              </p>
-
-            </li> -->
 
           </ol>
 
@@ -571,33 +380,19 @@
 
           <ol class="timeline-list">
 
-            <!-- <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Creative director</h4>
-
-              <span>2015 — Present</span>
-
-              <p class="timeline-text">
-                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
-                molestias
-                exceptur.
-              </p>
-
-            </li> -->
-
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">DevOps Intern - Atalink</h4>
-              <span>02/2025 — Present</span>
+              <h4 class="h4 timeline-item-title">DevOps Engineer - YouNet Media</h4>
+              <span>09/2025 — Present</span>
               <p class="timeline-text">
-                Gaining hands-on experience in automating infrastructure, deploying applications, and improving system efficiency using DevOps tools and practices.
+                Delivering CI/CD workflows with Jenkins and Helm, operating Kubernetes clusters, and building observability systems with Prometheus, Grafana, and Loki.
               </p>
             </li>
             
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">DevOps Intern - THD Cyber Security</h4>
-              <span>07/2024 — 12/2024</span>
+              <h4 class="h4 timeline-item-title">DevOps Intern - TiTan Technology &amp; THD Cyber Security</h4>
+              <span>07/2024 — 06/2025</span>
               <p class="timeline-text">
-                Focused on CI/CD pipeline development and management of Kubernetes clusters to ensure continuous integration, delivery, and system scalability.
+                Implemented GitOps pipelines with Argo CD and GitLab, automated Kubernetes cluster setup via Kubespray/Ansible, and applied monitoring using ELK and Prometheus.
               </p>
             </li>
             
@@ -606,73 +401,56 @@
 
         </section>
 
-        <!-- <section class="skill">
+        <section class="timeline">
 
-          <h3 class="h3 skills-title">My skills</h3>
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="code-slash-outline"></ion-icon>
+            </div>
 
-          <ul class="skills-list content-card">
+            <h3 class="h3">Technical Skills</h3>
+          </div>
 
-            <li class="skills-item">
+          <div class="tech-skills-grid">
+            <div class="tech-skill-card">
+              <h4 class="h4 tech-skill-title">Cloud &amp; IaC</h4>
+              <p class="tech-skill-text">AWS (EC2, VPC, S3), Terraform, Ansible</p>
+            </div>
 
-              <div class="title-wrapper">
-                <h5 class="h5">CI/CD pipeline</h5>
-                <data value="80">80%</data>
-              </div>
+            <div class="tech-skill-card">
+              <h4 class="h4 tech-skill-title">Container Orchestration</h4>
+              <p class="tech-skill-text">Kubernetes, Istio Service Mesh, Helm Charts</p>
+            </div>
 
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
+            <div class="tech-skill-card">
+              <h4 class="h4 tech-skill-title">Serverless &amp; Autoscaling</h4>
+              <p class="tech-skill-text">Knative, KEDA, Karpenter</p>
+            </div>
 
-            </li>
+            <div class="tech-skill-card">
+              <h4 class="h4 tech-skill-title">CI/CD &amp; GitOps</h4>
+              <p class="tech-skill-text">Jenkins (Shared Libraries), GitLab CI, Argo CD</p>
+            </div>
 
-            <li class="skills-item">
+            <div class="tech-skill-card">
+              <h4 class="h4 tech-skill-title">Observability</h4>
+              <p class="tech-skill-text">Prometheus, Grafana, Loki, Alloy, ELK Stack</p>
+            </div>
 
-              <div class="title-wrapper">
-                <h5 class="h5">Container orchestration</h5>
-                <data value="70">70%</data>
-              </div>
+            <div class="tech-skill-card">
+              <h4 class="h4 tech-skill-title">Databases</h4>
+              <p class="tech-skill-text">MongoDB, Redis, TimescaleDB, MySQL</p>
+            </div>
 
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
+            <div class="tech-skill-card">
+              <h4 class="h4 tech-skill-title">Security</h4>
+              <p class="tech-skill-text">HashiCorp Vault, Snyk</p>
+            </div>
+          </div>
 
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Monitoring</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">IaC</h5>
-                <data value="50">50%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section> -->
+        </section>
 
       </article>
-
-      <!--
-        - #PORTFOLIO
-      -->
 
       <article class="portfolio" data-page="portfolio">
 
@@ -689,15 +467,7 @@
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>CI/CD</button>
-            </li>
-
-            <li class="filter-item">
               <button data-filter-btn>Container Orchestration</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Monitoring, Logs</button>
             </li>
 
             <li class="filter-item">
@@ -725,15 +495,7 @@
               </li>
 
               <li class="select-item">
-                <button data-select-item>CI/CD</button>
-              </li>
-
-              <li class="select-item">
                 <button data-select-item>Container Orchestration</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Monitoring, Logs</button>
               </li>
 
               <li class="select-item">
@@ -745,93 +507,37 @@
           </div>
 
           <ul class="project-list">
-            
-            <!-- <div style="color: white;"> (Coming soon)</div> -->
 
-            <li class="project-item  active" data-filter-item data-category="CI/CD">
-              <a href="https://github.com/manhhung3004/eshop-microservices">
+            <li class="project-item  active" data-filter-item data-category="IaC">
+              <a href="./pages/project-gitops-platform.html">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/MicroServices-1.png" alt="microservices" loading="lazy">
+                  <img src="./assets/images/Kubernetes-Logo.jpg" alt="GitOps Platform" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">eshop-microservices</h3>
+                <h3 class="project-title">Production-Ready GitOps Framework</h3>
 
-                <p class="project-category">CI/CD</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Monitoring, Logs">
-              <a href="https://github.com/manhhung3004/DevOps-Blog/tree/main/logging/elk">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/elk.jpg" alt="elk" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Logging with ELK</h3>
-
-                <p class="project-category">Monitoring, Logs</p>
-
-              </a>
-            </li>
-            
-            <li class="project-item  active" data-filter-item data-category="Monitoring, Logs">
-              <a href="https://github.com/manhhung3004/DevOps-Blog/tree/main/monitoring">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/monitoring.png" alt="monitoring" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Monitoring with prometheus and grafana</h3>
-
-                <p class="project-category">Monitoring, Logs</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="CI/CD">
-              <a href="https://github.com/manhhung3004/DevOps-Blog/tree/main/jenkins/shard-library-jenkins">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Shared-Libraries.jpg" alt="Shared-library-jenkins" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Extending with Shared Libraries (Example code)</h3>
-
-                <p class="project-category">CI/CD</p>
+                <p class="project-category">IaC</p>
 
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="Container Orchestration">
-              <a href="https://github.com/manhhung3004/deployment-and-monitoring-kubenetes">
+              <a href="./pages/project-services-mesh-event-driven-scaling.html">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/Kubernetes-Logo.jpg" alt="Kubernetes" loading="lazy">
+                  <img src="./assets/images/MicroServices-1.png" alt="Services Mesh and Event-Driven Scaling" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">implementation Kubernetes</h3>
+                <h3 class="project-title">Services Mesh &amp; Event-Driven Scaling</h3>
 
                 <p class="project-category">Container Orchestration</p>
 
@@ -863,35 +569,7 @@
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-              <a href="./pages/blog-1.html">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
+              <a href="./pages/blog-2.html">
 
                 <figure class="blog-banner-box">
                   <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
@@ -900,17 +578,17 @@
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">Kubernetes</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2026-03-21">Mar 21, 2026</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+                  <h3 class="h3 blog-item-title">Observability Stack in Practice</h3>
 
                   <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                    Monitoring and log strategy with Prometheus, Grafana, Loki, and ELK.
                   </p>
 
                 </div>
@@ -919,7 +597,7 @@
             </li>
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="./pages/blog-3.html">
 
                 <figure class="blog-banner-box">
                   <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
@@ -928,101 +606,17 @@
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">Scaling</p>
 
                     <span class="dot"></span>
 
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                    <time datetime="2026-03-21">Mar 21, 2026</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+                  <h3 class="h3 blog-item-title">Event-Driven Scaling with KEDA</h3>
 
                   <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                    Lessons from autoscaling workloads based on queue depth in Kubernetes.
                   </p>
 
                 </div>
@@ -1095,7 +689,8 @@
   <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/theme.js?v=20260321b"></script>
+  <script src="./assets/js/script.js?v=20260321a"></script>
 
   <!--
     - ionicon link
