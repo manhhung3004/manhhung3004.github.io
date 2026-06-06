@@ -43,6 +43,8 @@
 
   toggleBtn.addEventListener('click', function () {
     const current = root.getAttribute('data-theme') || 'light';
+    toggleBtn.classList.add('theme-spinning');
+    setTimeout(() => toggleBtn.classList.remove('theme-spinning'), 450);
     applyTheme(current === 'dark' ? 'light' : 'dark', true);
   });
 })();

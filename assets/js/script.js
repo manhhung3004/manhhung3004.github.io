@@ -140,6 +140,31 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+const revealOnScroll = (() => {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    return { observeAll: () => {}, refresh: () => {} };
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  const observeAll = () => {
+    document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((el) => observer.observe(el));
+  };
+
+  return { observeAll, refresh: observeAll };
+})();
+
 const activatePage = function (pageName) {
   for (let i = 0; i < pages.length; i++) {
     const isTarget = pageName === pages[i].dataset.page;
@@ -147,6 +172,13 @@ const activatePage = function (pageName) {
     navigationLinks[i].classList.toggle("active", isTarget);
   }
   window.scrollTo(0, 0);
+
+  const activeArticle = document.querySelector("article.active");
+  if (activeArticle) {
+    activeArticle.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-visible"));
+  }
+
+  requestAnimationFrame(() => revealOnScroll.refresh());
 }
 
 // add event to all nav link
@@ -165,3 +197,7 @@ const hashPage = window.location.hash.replace("#", "").toLowerCase();
 if (hashPage) {
   activatePage(hashPage);
 }
+
+
+
+revealOnScroll.observeAll();
