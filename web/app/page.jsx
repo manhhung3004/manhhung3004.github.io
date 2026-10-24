@@ -12,6 +12,11 @@ export default function Home() {
           ~/blog<span className="cursor" aria-hidden="true" />
         </p>
         <h1>{site.description}</h1>
+        {site.intro && (
+          <p className="hero-intro">
+            {site.intro} <Link href="/about">About me →</Link>
+          </p>
+        )}
       </section>
       <h2 className="section-label">
         {'// latest posts '}

@@ -36,7 +36,7 @@ Implemented GitOps pipelines with Argo CD and GitLab, automated Kubernetes clust
 
 **University of Information Technology — VNUHCM** · 2021 — 2025
 
-Computer Networks and Data Communications (GPA: 7.56/10). TOEIC Speaking & Writing: 260/400.
+Computer Networks and Data Communications.
 
 ## Technical skills
 

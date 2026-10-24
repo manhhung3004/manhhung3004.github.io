@@ -41,3 +41,4 @@ collections:
         fields:
           - { name: title, label: Blog title, widget: string }
           - { name: description, label: Tagline (home page headline), widget: text }
+          - { name: intro, label: One-line intro under the headline, widget: string, required: false }
