@@ -13,8 +13,13 @@ function read(file) {
   return { meta: YAML.parse(m[1]) ?? {}, content: raw.slice(m[0].length) };
 }
 
+const tocOf = content => [...content.matchAll(/^## (.+)$/gm)].map(h => ({ text: h[1], id: slugify(h[1]) }));
+
 // A standalone page such as content/about.md.
-export const getPage = name => read(path.join(process.cwd(), 'content', `${name}.md`));
+export function getPage(name) {
+  const page = read(path.join(process.cwd(), 'content', `${name}.md`));
+  return { ...page, toc: tocOf(page.content) };
+}
 
 function parse(slug) {
   const { meta, content } = read(path.join(dir, `${slug}.md`));
@@ -24,7 +29,7 @@ function parse(slug) {
     ...meta,
     content,
     minutes: Math.max(1, Math.round(content.split(/\s+/).length / 220)),
-    toc: [...content.matchAll(/^## (.+)$/gm)].map(h => ({ text: h[1], id: slugify(h[1]) })),
+    toc: tocOf(content),
   };
 }
 

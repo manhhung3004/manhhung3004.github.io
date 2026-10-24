@@ -111,6 +111,31 @@ code { font: 0.84em var(--font-mono), ui-monospace, monospace; background: var(-
   .post-layout { grid-template-columns: minmax(0, 1fr); }
   .toc { display: none; }
 }
+/* About: one card per section, numbered headings, timeline for roles */
+.about { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; counter-reset: section; padding-top: 32px; }
+.about-card {
+  padding: 4px 28px 10px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--surface) 70%, transparent));
+  transition: border-color 0.2s;
+}
+.about-card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+@media (max-width: 600px) { .about-card { padding: 2px 18px 8px; } }
+.about-card .prose h2 { display: flex; align-items: baseline; gap: 12px; margin: 24px 0 18px; font-size: 1.35rem; }
+.about-card .prose h2::before {
+  counter-increment: section; content: counter(section, decimal-leading-zero);
+  font: 500 0.85rem var(--font-mono), monospace; color: var(--accent-2);
+}
+.about-card .table { margin-bottom: 18px; }
+/* "**Role — Company** · dates" lines followed by a description paragraph */
+.about-card .prose p:has(> strong:first-child) {
+  position: relative; margin: 22px 0 4px; padding-left: 22px; color: var(--muted); font-size: 0.95rem;
+}
+.about-card .prose p:has(> strong:first-child) strong { display: block; color: var(--fg); font-size: 1.05rem; }
+.about-card .prose p:has(> strong:first-child)::before {
+  content: ""; position: absolute; left: 0; top: 0.55em; width: 9px; height: 9px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 10px var(--glow);
+}
+.about-card .prose p:has(> strong:first-child) + p { margin: 0 0 8px; padding: 0 0 4px 22px; margin-left: 4px; border-left: 1px solid var(--line); }
 .read-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 0 12px var(--glow); z-index: 10; }
 
 /* Article body */

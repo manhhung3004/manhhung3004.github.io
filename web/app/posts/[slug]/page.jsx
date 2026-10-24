@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ScrollProgress, ScrollProgressProvider } from '@animate-ui/react/primitives/scroll-progress';
 import { getPost, getPosts, formatDate } from '../../../lib/posts';
 import Prose from '../../Prose';
+import Toc from '../../Toc';
 
 // Static export: only the posts that exist at build time.
 export const dynamicParams = false;
@@ -28,18 +29,7 @@ export default async function Post({ params }) {
       </header>
       <div className="post-layout">
         <Prose>{post.content}</Prose>
-        {post.toc.length > 1 && (
-          <aside className="toc" aria-label="On this page">
-            <p>On this page</p>
-            <ol>
-              {post.toc.map(h => (
-                <li key={h.id}>
-                  <a href={`#${h.id}`}>{h.text}</a>
-                </li>
-              ))}
-            </ol>
-          </aside>
-        )}
+        <Toc items={post.toc} />
       </div>
     </>
   );

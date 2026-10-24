@@ -20,21 +20,21 @@ My practical experience includes CI/CD automation with Jenkins and Helm, Kuberne
 
 ## Experience
 
-**DevOps Engineer — VNG** · 08/2026 — Present · Ho Chi Minh City, Vietnam
+**DevOps Engineer — VNG** 08/2026 — Present · Ho Chi Minh City, Vietnam
 
 Working on CI/CD and Kubernetes.
 
-**DevOps Engineer — YouNet Media** · 09/2025 — 08/2026
+**DevOps Engineer — YouNet Media** 09/2025 — 08/2026
 
 Delivering CI/CD workflows with Jenkins and Helm, operating Kubernetes clusters, and building observability systems with Prometheus, Grafana, and Loki.
 
-**DevOps Intern — TiTan Technology & THD Cyber Security** · 07/2024 — 06/2025
+**DevOps Intern — TiTan Technology & THD Cyber Security** 07/2024 — 06/2025
 
 Implemented GitOps pipelines with Argo CD and GitLab, automated Kubernetes cluster setup via Kubespray/Ansible, and applied monitoring using ELK and Prometheus.
 
 ## Education
 
-**University of Information Technology — VNUHCM** · 2021 — 2025
+**University of Information Technology — VNUHCM** 2021 — 2025
 
 Computer Networks and Data Communications.
 
