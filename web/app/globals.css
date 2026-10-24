@@ -157,6 +157,9 @@ a.tag:hover { border-color: var(--accent-2); }
 .prose strong { font-weight: 650; }
 .prose pre { background: var(--code); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; overflow-x: auto; margin: 8px 0 24px; font-size: 0.95rem; line-height: 1.6; }
 .prose pre code { background: none; padding: 0; border-radius: 0; }
+/* Long identifiers and URLs must wrap instead of widening the page on phones. */
+.prose { overflow-wrap: break-word; }
+.prose :not(pre) > code { overflow-wrap: anywhere; }
 .prose img { display: block; max-width: 100%; height: auto; margin: 8px auto 24px; border-radius: var(--radius); border: 1px solid var(--line); }
 .table { overflow-x: auto; margin: 8px 0 28px; border: 1px solid var(--line); border-radius: var(--radius); }
 .table table { border-collapse: collapse; width: 100%; font-size: 0.92rem; line-height: 1.55; }
