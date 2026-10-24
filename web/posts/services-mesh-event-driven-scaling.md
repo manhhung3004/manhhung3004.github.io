@@ -1,6 +1,8 @@
 ---
 title: "Project: Services Mesh & Event-Driven Scaling"
 date: 2026-03-21
+tags: [Kubernetes, Observability]
+project: true
 description: Kubernetes, Istio, Knative scale-to-zero, and KEDA event-driven autoscaling in a production-like cluster.
 ---
 

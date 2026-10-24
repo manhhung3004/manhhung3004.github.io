@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Fades } from '@animate-ui/react/primitives/effects/fade';
 import site from '../site.json';
-import { getPosts, formatDate } from '../lib/posts';
+import { getPosts, getTags, slugify } from '../lib/posts';
+import PostList from './PostList';
 
 export default function Home() {
-  const posts = getPosts();
+  const posts = getPosts('posts');
   return (
     <div className="home">
       <section className="hero">
@@ -18,26 +18,18 @@ export default function Home() {
           </p>
         )}
       </section>
+      <nav className="tag-bar" aria-label="Topics">
+        {getTags().map(t => (
+          <Link key={t.slug} href={`/tags/${slugify(t.name)}`} className="tag">
+            {t.name} <span>{t.posts.length}</span>
+          </Link>
+        ))}
+      </nav>
       <h2 className="section-label">
         {'// latest posts '}
         <span className="count">{posts.length}</span>
       </h2>
-      <ul className="posts">
-        <Fades asChild holdDelay={80}>
-          {posts.map(p => (
-            <li key={p.slug}>
-              <Link href={`/posts/${p.slug}`} className="card">
-                <span className="meta">
-                  <time dateTime={p.date}>{formatDate(p.date)}</time> · {p.minutes} min read
-                </span>
-                <span className="card-title">{p.title}</span>
-                {p.description && <span className="card-desc">{p.description}</span>}
-                <span className="card-more">Read post →</span>
-              </Link>
-            </li>
-          ))}
-        </Fades>
-      </ul>
+      <PostList posts={posts} />
     </div>
   );
 }

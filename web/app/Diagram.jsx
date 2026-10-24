@@ -25,6 +25,18 @@ export const flows = {
     accent: 1,
     loop: { from: 4, to: 0, label: 'SLO breach → automatic rollback, fix forward' },
   },
+  'ship-loop': {
+    label: 'Nothing reaches main without a green build',
+    steps: [
+      ['Edit', 'agent or /admin'],
+      ['Branch', 'feat/*, hook-guarded'],
+      ['CI', 'build + npm audit'],
+      ['Promote', 'fast-forward main'],
+      ['Deploy', 'GitHub Pages'],
+    ],
+    accent: 2,
+    loop: { from: 2, to: 0, label: 'red build → fix and push again' },
+  },
 };
 
 const cx = [84, 232, 380, 528, 676];

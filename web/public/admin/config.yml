@@ -22,6 +22,8 @@ collections:
       - { name: title, label: Title, widget: string }
       - { name: date, label: Date, widget: datetime, type: date }
       - { name: description, label: Description, widget: text, required: false, hint: Shown on the home page under the title. }
+      - { name: tags, label: Tags, widget: list, required: false, hint: "e.g. Kubernetes, CI/CD, Observability, AI, Security, GitOps" }
+      - { name: project, label: Project write-up, widget: boolean, required: false, default: false, hint: Shown on /projects instead of the blog list. }
       - { name: body, label: Body, widget: markdown }
 
   - name: settings

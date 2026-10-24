@@ -1,6 +1,7 @@
 ---
 title: A Practical Guide to Getting the Most Out of AI and Agents
 date: 2026-10-24
+tags: [AI]
 description: How to brief AI clearly, manage context, pick the right model, and verify results when working with chat assistants and coding agents.
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: New DevOps Tools Worth Knowing in Late 2026
 date: 2026-10-24
+tags: [Kubernetes, CI/CD, Observability, AI]
 description: AI SRE agents went GA, ingress-nginx retired, hardened images went free, and IaC got an MCP server. A field guide to what changed and what to try first.
 ---
 

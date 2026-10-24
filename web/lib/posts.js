@@ -27,6 +27,8 @@ function parse(slug) {
   return {
     slug,
     ...meta,
+    tags: Array.isArray(meta.tags) ? meta.tags.map(String) : [],
+    project: meta.project === true,
     content,
     minutes: Math.max(1, Math.round(content.split(/\s+/).length / 220)),
     toc: tocOf(content),
@@ -37,12 +39,27 @@ export const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
 
 export const getPost = parse;
 
-export function getPosts() {
+// kind: 'all' (default), 'posts' (blog posts only) or 'projects' (frontmatter `project: true`).
+export function getPosts(kind = 'all') {
   return fs
     .readdirSync(dir)
     .filter(f => f.endsWith('.md'))
     .map(f => parse(f.slice(0, -3)))
+    .filter(p => kind === 'all' || p.project === (kind === 'projects'))
     .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+// Every tag with its slug and the posts that carry it, most used first.
+export function getTags() {
+  const tags = new Map();
+  for (const p of getPosts()) {
+    for (const name of p.tags) {
+      const slug = slugify(name);
+      if (!tags.has(slug)) tags.set(slug, { name, slug, posts: [] });
+      tags.get(slug).posts.push(p);
+    }
+  }
+  return [...tags.values()].sort((a, b) => b.posts.length - a.posts.length || a.name.localeCompare(b.name));
 }
 
 export const formatDate = d => new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });

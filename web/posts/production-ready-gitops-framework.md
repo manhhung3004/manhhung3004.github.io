@@ -1,6 +1,8 @@
 ---
 title: "Project: Production-Ready GitOps Framework"
 date: 2026-03-21
+tags: [Kubernetes, GitOps, Observability]
+project: true
 description: Multi-environment GitOps delivery with Argo CD, Vault, Jenkins Shared Libraries, and Helm common charts.
 ---
 

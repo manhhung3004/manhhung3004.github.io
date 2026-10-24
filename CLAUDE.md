@@ -4,7 +4,7 @@ Static Next.js 16 blog (`output: 'export'`) published to GitHub Pages at https:/
 
 ## Layout
 
-- `web/posts/*.md` — blog posts (YAML frontmatter: `title`, `date` YYYY-MM-DD, `description`). Build fails on missing fields.
+- `web/posts/*.md` — blog posts (YAML frontmatter: `title`, `date` YYYY-MM-DD, `description`, optional `tags: [..]` and `project: true` for /projects). Build fails on a missing title or date. Reuse existing tags (Kubernetes, CI/CD, Observability, AI, Security, GitOps) before inventing new ones.
 - `web/content/about.md` — the About page. `web/site.json` — blog title, tagline, intro line.
 - `web/app/` — pages; `Prose.jsx` renders Markdown; `Diagram.jsx` holds drawn flows used as ```` ```<flow-name> ```` fences.
 - `web/public/admin/` — Sveltia CMS; it commits straight to `main` through the GitHub API.

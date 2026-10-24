@@ -41,28 +41,9 @@ jobs:
     permissions:
       pages: write
       id-token: write
-      actions: read
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # shortcut: while Settings > Pages still deploys from the branch, GitHub also runs its own
-      # "pages build and deployment" for this commit and can overwrite this deploy. Wait for it so
-      # this deploy lands last. Remove once Pages Source is "GitHub Actions".
-      - name: Wait for the branch-based Pages build
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPO: ${{ github.repository }}
-          SHA: ${{ github.sha }}
-        run: |
-          for i in $(seq 1 30); do
-            status=$(curl -fsSL -H "Authorization: Bearer $GH_TOKEN" \
-              "https://api.github.com/repos/$REPO/actions/runs?head_sha=$SHA&per_page=20" \
-              | jq -r '[.workflow_runs[] | select(.name == "pages build and deployment")][0].status // "none"')
-            echo "branch-based Pages build: $status"
-            [ "$status" = completed ] && break
-            [ "$status" = none ] && [ "$i" -ge 6 ] && break   # no such run after 60s: Source is already Actions
-            sleep 10
-          done
       - id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

@@ -1,6 +1,7 @@
 ---
 title: CI/CD Best Practices for the AI Era
 date: 2026-10-24
+tags: [CI/CD, Security, AI]
 description: AI made writing code cheap and shipping it riskier. Eight practices, with GitLab CI examples, for a pipeline that keeps up with AI-generated changes and doesn't become the easiest way into your systems.
 ---
 
