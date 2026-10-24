@@ -41,6 +41,7 @@ collections:
         label: Blog settings
         file: web/site.json
         fields:
-          - { name: title, label: Blog title, widget: string }
+          - { name: name, label: Short name (header and tab suffix), widget: string }
+          - { name: title, label: Full title (home tab, link previews, RSS), widget: string }
           - { name: description, label: Tagline (home page headline), widget: text }
           - { name: intro, label: One-line intro under the headline, widget: string, required: false }

@@ -18,10 +18,14 @@ export function ogImage({ eyebrow, title, tags = [], footer = '' }) {
           <div
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', width: 52, height: 52, borderRadius: 12,
-              background: 'linear-gradient(135deg, #a78bfa, #22d3ee)', color: '#fff', fontSize: 30, fontWeight: 700,
+              background: 'linear-gradient(135deg, #8b5cf6, #06b6d4)',
             }}
           >
-            h
+            {/* Same terminal prompt as app/icon.svg */}
+            <svg width="52" height="52" viewBox="0 0 32 32">
+              <path d="M9 10.5l6.5 5.5L9 21.5" fill="none" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M17.5 22h6" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" />
+            </svg>
           </div>
           {site.title}
           <span style={{ color: '#22d3ee' }}>{eyebrow}</span>

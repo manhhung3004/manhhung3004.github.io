@@ -58,7 +58,8 @@ code { font: 0.84em var(--font-mono), ui-monospace, monospace; background: var(-
 .site-nav a { color: var(--muted); text-decoration: none; }
 .site-nav a:hover { color: var(--accent-2); }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--fg); font-weight: 600; text-decoration: none; letter-spacing: -0.01em; }
-.brand-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font: 700 0.95rem var(--font-mono), monospace; box-shadow: 0 0 16px -2px var(--glow); }
+.brand-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #8b5cf6, #06b6d4); box-shadow: 0 0 16px -2px var(--glow); }
+.brand-mark svg { width: 28px; height: 28px; }
 .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; padding: 32px 0 48px; margin-top: 96px; }
 
 /* Home */

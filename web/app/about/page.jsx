@@ -6,7 +6,7 @@ const page = getPage('about');
 // One card per "## " section, so each part of the profile reads as its own block.
 const sections = page.content.split(/^(?=## )/m).filter(s => s.trim());
 
-export const metadata = { title: page.meta.title, description: page.meta.description };
+export const metadata = { title: 'About', description: `${page.meta.title} — ${page.meta.description}` };
 
 export default function About() {
   return (
