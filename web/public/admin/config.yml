@@ -1,0 +1,43 @@
+# Sveltia CMS config. Paths are relative to the Git repository root (the folder that holds render.yaml).
+backend:
+  name: github
+  repo: manhhung3004/manhhung3004.github.io
+  branch: main
+
+media_folder: web/public/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: web/posts
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    slug: '{{slug}}'
+    summary: '{{date}} · {{title}}'
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, type: date }
+      - { name: description, label: Description, widget: text, required: false, hint: Shown on the home page under the title. }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: settings
+    label: Settings
+    files:
+      - name: about
+        label: About page
+        file: web/content/about.md
+        format: yaml-frontmatter
+        fields:
+          - { name: title, label: Name, widget: string }
+          - { name: description, label: Subtitle, widget: string, required: false }
+          - { name: body, label: Body, widget: markdown }
+      - name: site
+        label: Blog settings
+        file: web/site.json
+        fields:
+          - { name: title, label: Blog title, widget: string }
+          - { name: description, label: Tagline (home page headline), widget: text }

@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: huong-dan-ai-agent
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    autoDeploy: true
