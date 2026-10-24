@@ -1,7 +1,10 @@
-# Checks every pull request before it can be merged into main (see CLAUDE.md > Delivery pipeline).
+# Checks every feature branch; a green branch is fast-forwarded into main and deployed
+# (see CLAUDE.md > Delivery pipeline). Old branches such as legacy-vcard-site are never promoted.
 name: CI
 
 on:
+  push:
+    branches: ['feat/**', 'fix/**', 'chore/**', 'docs/**', 'content/**']
   pull_request:
     branches: [main]
 
@@ -32,3 +35,31 @@ jobs:
         run: npm run build
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
+
+  promote:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: promote-main
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Fast-forward main to this commit
+        run: |
+          git fetch origin main
+          if ! git merge-base --is-ancestor origin/main "$GITHUB_SHA"; then
+            echo "::error::main has moved on. Run 'git merge origin/main' on this branch and push again."
+            exit 1
+          fi
+          git push origin "$GITHUB_SHA:refs/heads/main"
+      # Pushes made with GITHUB_TOKEN do not trigger other workflows; workflow_dispatch is the exception.
+      - name: Start the deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main --repo "$GITHUB_REPOSITORY"

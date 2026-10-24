@@ -8,7 +8,7 @@ COPY web/ ./
 RUN npm run build
 
 FROM nginx:1.30-alpine3.24-slim
-# Render injects PORT; nginx's entrypoint substitutes it into the template at startup.
+# nginx's entrypoint substitutes PORT into the template at startup (run-local.sh passes it).
 ENV PORT=8080
 COPY nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY --from=build /app/web/out /usr/share/nginx/html

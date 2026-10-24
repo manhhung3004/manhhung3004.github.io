@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Chạy thử image production ở local trước khi deploy lên Render.
+# Chạy thử bản build production (nginx + trang tĩnh) ở local bằng Docker.
 # Dùng: ./run-local.sh [start|rebuild|stop|logs]   (mặc định: start)
 #   start   — build nếu chưa có image, rồi chạy
 #   rebuild — build lại từ đầu (--no-cache --pull), rồi chạy

@@ -1,4 +1,4 @@
-# Sveltia CMS config. Paths are relative to the Git repository root (the folder that holds render.yaml).
+# Sveltia CMS config. Paths are relative to the Git repository root (the folder that holds CLAUDE.md).
 backend:
   name: github
   repo: manhhung3004/manhhung3004.github.io
