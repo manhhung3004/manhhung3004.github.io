@@ -5,7 +5,7 @@ description: DevOps Engineer · Ho Chi Minh City, Vietnam
 
 ## About me
 
-I am Nong Manh Hung, a DevOps Engineer based in Ho Chi Minh City, Vietnam, currently working at YouNet Media. I focus on building reliable platform systems and deployment pipelines for modern cloud-native applications.
+I am Nong Manh Hung, a DevOps Engineer based in Ho Chi Minh City, Vietnam, currently working at VNG. I focus on building reliable platform systems and deployment pipelines for modern cloud-native applications.
 
 My practical experience includes CI/CD automation with Jenkins and Helm, Kubernetes cluster operations, observability using Prometheus/Grafana/Loki, and infrastructure automation with Ansible. I also work with MongoDB, Redis, MySQL, and TimescaleDB to improve performance and system stability.
 
@@ -20,7 +20,11 @@ My practical experience includes CI/CD automation with Jenkins and Helm, Kuberne
 
 ## Experience
 
-**DevOps Engineer — YouNet Media** · 09/2025 — Present
+**DevOps Engineer — VNG** · 08/2026 — Present · Ho Chi Minh City, Vietnam
+
+Working on CI/CD and Kubernetes.
+
+**DevOps Engineer — YouNet Media** · 09/2025 — 08/2026
 
 Delivering CI/CD workflows with Jenkins and Helm, operating Kubernetes clusters, and building observability systems with Prometheus, Grafana, and Loki.
 
@@ -54,5 +58,5 @@ Computer Networks and Data Communications (GPA: 7.56/10). TOEIC Speaking & Writi
 ## Contact
 
 - GitHub: [manhhung3004](https://github.com/manhhung3004)
-- LinkedIn: [Manh Hung](https://www.linkedin.com/in/manh-hung-4665b7243/)
+- LinkedIn: [manhhung3004](https://www.linkedin.com/in/manhhung3004/)
 - Email: [manhhung20033004@gmail.com](mailto:manhhung20033004@gmail.com)
