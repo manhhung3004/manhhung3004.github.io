@@ -14,11 +14,19 @@ This project simulates a production-grade environment by combining Kubernetes in
 - **Service Mesh Integration** — Implemented Istio for advanced traffic routing, mTLS security, and deep observability.
 - **Scale-to-Zero Optimization** — Applied Knative Serving to reduce idle CPU/RAM consumption during low-traffic periods.
 
-## Autoscaling & monitoring
+## Event-driven autoscaling with KEDA
 
-- KEDA-driven autoscaling triggered by Redis queue depth
-- Real-time scaling and health dashboards with Prometheus and Grafana
-- Event-driven workload handling for bursty traffic scenarios
+Traditional HPA works well with CPU and memory, but event-driven workloads need queue-aware autoscaling. KEDA provides a clean model to scale based on business events.
+
+- KEDA triggers connected to Redis queue depth, with safe min/max replica bounds for burst handling.
+- Knative for scale-to-zero where suitable.
+- Real-time scaling and health dashboards with Prometheus and Grafana.
+
+**What to watch:**
+
+- Lag between trigger detection and pod readiness.
+- Cold-start cost when scaling from zero.
+- Queue policy and retry behavior to avoid message storms.
 
 ## Core stack
 
