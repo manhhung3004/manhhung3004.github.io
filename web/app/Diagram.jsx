@@ -25,6 +25,18 @@ export const flows = {
     accent: 1,
     loop: { from: 4, to: 0, label: 'SLO breach → automatic rollback, fix forward' },
   },
+  'debug-path': {
+    label: 'Start where the user hurts, then drill down one layer at a time',
+    steps: [
+      ['Alert', 'SLO burn rate'],
+      ['Overview', 'which journey, since when'],
+      ['Service', 'RED: rate, errors, p99'],
+      ['Resources', 'USE: what is saturated'],
+      ['Trace + logs', 'exemplar → span → log'],
+    ],
+    accent: 0,
+    loop: { from: 4, to: 0, label: 'postmortem → a new SLI or a better alert' },
+  },
   'ship-loop': {
     label: 'Nothing reaches main without a green build',
     steps: [
